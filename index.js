@@ -26,11 +26,11 @@ function triggerBattle() {
   console.log(result.order.map(p => p.toString()).join(";"));
 
   console.log("\nBattle Outcomes:");
-  result.results.forEach((b, idx) => {
-    console.log(
-      `Battle ${idx + 1}: ${b.myPlatoon} vs ${b.oppPlatoon} => ${b.outcome}`
-    );
-  });
+  console.log(result.results.map((b, idx) =>{
+    const unit=b.myPlatoon.unitClass
+    const count=b.myPlatoon.soldierCount
+    return `${unit}#${count}`
+  }).join(";"))
 }
 
 triggerBattle();
